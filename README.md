@@ -1,2 +1,2 @@
 # SoftDesMP4
-Astroid Clone by Jamie and Adi
+Asteroid Clone by Jamie and Adi
