@@ -1,0 +1,43 @@
+What is the main idea of your project? What topics will you explore and what will you generate? What is your minimum viable product? What is a stretch goal?
+
+We (Jamie and Adi) would like to make a clone of the retro game "Astroids."
+We will explore creating different classes (like Controller and Debris), controlling them and modifiying the enviornment in which the user plays in.
+
+Our MVP will consist of a ship that can navigate freely around the screen to avoid a constant stream of astroids. There will be some sort of score keeping device that relates to the time the player is alive.
+
+Our stretch goal would be implementing different enemies and a shooter system that could possibly factor into score caluclations.
+
+
+What are your learning goals for this project (for each member)?
+
+Adi:
+	- Develop a working understanding of using graphics and graphics libraries in Python3
+	- Focusing on aesthetic in the final product
+
+Jamie: 
+	- Creating more universal classes 
+	- Build proficiency at collecting user input
+	- Creating "strategic randomness"
+
+
+
+
+What libraries are you planning to use? (if you don’t know enough yet, please outline how you will decide this question during the beginning phase of the project).
+
+Libraries we curretnly plan on using:
+	-Pygame
+	-Time
+
+We may use other libraries as specific needs arise
+
+
+
+What do you plan to accomplish by the mid-project check-in? (See below for some generic goals; edit to suit your particular project)
+
+Our goal is to have our MVP finished or close to working by the mid-project check in. This includes a working controller class, environment, and asteroids. 
+
+
+
+What do you view as the biggest risks to you being successful on this project? How will you mitigate them?
+
+The biggest risk is the break in the middle of the project. We have to allot some time over break to make some parts of the project work. By having a scheudule and setting the amount of work over break to be really low, we can still get things done on time. 
