@@ -1,0 +1,36 @@
+You should have good sense of the major classes that you will need to create for your project. A UML diagram (see Think Python (Links to an external site.)Links to an external site.) will be a useful thing to have as well.
+
+	For our Asteroids clone, the major classes we plan on implementing are: Ship, Projectile, and Asteroid. We originally planned on having seperate files for each one, but it doesn't look like we need to do this. We may consider changing this decision if the code gets too messy.
+
+	The general relationship between these classes are: Ship fires Projectile and Projectile hits Asteroid. If Ship contacts Asteroid, you lose. 
+
+
+
+You should have a clear implementation plan. This includes how you will divide (or not divide) up the programming tasks among you and your partner.
+
+	We established specific roles at the start of the project, and changed courses slightly. Jamie was originally in charge of the Controller, now Ship, class and its dependencies, but both Adi and Jamie worked on this to develop a basic understanding of how pygame works. 
+
+	For the rest of the project, Jamie will polish the controller classes and include nice sprites for the ship and projectiles, and Adi will polish the Asteroids and enviornment portion.
+
+
+
+If you are planning to use a library that you read about, you should have verified that you can install it and that it can be used for the purpose that you want.
+	
+	At this point, we do not think that there are any other libraries that we need to import/install to make our game work
+
+
+
+You should have a good start on implementing some of the classes for your project.
+
+	We currently have a working MVP of the ship and projectiles, and the asteroids are under work. There are some nuances from the original game that we plan on implementing after we have a full working copy of the game (wrap around the screen, etc.)
+
+	One of our focuses was to have an aesthetic and polished final product, so there will be a big push on graphics after we get the game working.
+
+
+Submit a text status update on Canvas addressing these generic goals and the specific goals you identified in your proposal, and pointing to concrete evidence of progress for each (i.e. links to work in your repository).
+
+	We had initially planned on having an MVP by the mid project check-in and we are close, but not quite there. We have to work a little extra hard this week to catch up and reach for all of our goals. We did anticipate falling behind because of the break, but we aren't too far behind at this point. 
+
+Link to game repo: https://github.com/jgsantiagojr/SoftDesMP4/blob/master/game.py
+
+*We have files for classes in case we decide to clean up the main game file later in the process.
