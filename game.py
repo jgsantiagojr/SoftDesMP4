@@ -1,5 +1,11 @@
 import pygame
 import random
+import controller as contr
+import projectile as proj
+import enemy
+import rocks
+
+
 pygame.init()
 
 
