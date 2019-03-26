@@ -1,4 +1,5 @@
 import pygame
+import random
 pygame.init()
 
 
@@ -18,6 +19,10 @@ def redrawGameWindow():
 		bullet.coverdraw(window)
 		bullet.draw(window)
 
+	for rock in rocks:
+		rock.coverdraw(window)
+		rock.draw(window)
+
 
 
 class Ship():
@@ -26,7 +31,7 @@ class Ship():
 		self.y = y
 		self.width = width
 		self.height = height
-		self.vel = 8
+		self.vel = 20
 		self.alive = True
 
 
@@ -39,7 +44,22 @@ class Projectile():
 		self.y = y
 		self.radius = radius
 		self.color = color
-		self.vel = -10
+		self.vel = -30
+
+	def coverdraw(self, window):
+		pygame.draw.circle(window, (0,0,0), (self.x, self.y-self.vel), self.radius)
+
+	def draw(self, window):
+		pygame.draw.circle(window, self.color, (self.x, self.y), self.radius)
+
+
+class Asteroid():
+	def __init__(self, color):
+		self.x = random.randint(20, 620)
+		self.y = 0
+		self.radius = random.randint(10, 25)
+		self.color = color
+		self.vel = random.randint(25, 40)
 
 	def coverdraw(self, window):
 		pygame.draw.circle(window, (0,0,0), (self.x, self.y-self.vel), self.radius)
@@ -57,6 +77,7 @@ class Projectile():
 
 ship = Ship(320, 400, 50, 50)
 bullets = []
+rocks = []
 
 
 
@@ -73,6 +94,12 @@ while run:
 			bullet.y += bullet.vel
 		else:
 			bullets.pop(bullets.index(bullet))
+
+	for rock in rocks:
+		if rock.y < 480:
+			rock.y += rock.vel
+		else:
+			rocks.pop(rocks.index(rock))
 
 
 	keys = pygame.key.get_pressed()
@@ -108,6 +135,9 @@ while run:
 		if len(bullets) < 5:
 			bullets.append(Projectile(round(ship.x+ship.width//2), round(ship.y+ship.height//2), 6, (255,255,255)))
 
+	if keys[pygame.K_a]:
+		if len(rocks) < 8:
+			rocks.append(Asteroid((0,255,0)))
 
 	redrawGameWindow()
 
