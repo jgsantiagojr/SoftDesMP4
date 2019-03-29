@@ -1,4 +1,6 @@
 import pygame
+from pygame.locals import*
+
 import random
 import math
 
@@ -19,8 +21,7 @@ window = pygame.display.set_mode((winL,winH))
 pygame.display.set_caption("Asteroids")
 
 
-
-
+rockimg = pygame.image.load('asteroid.jpg')
 
 
 
@@ -37,8 +38,8 @@ class Asteroid:
 
 
 	def draw(self, window):
-		pygame.draw.circle(window, self.color, (self.x, self.y), self.radius)
-
+		#pygame.draw.circle(window, self.color, (self.x, self.y), self.radius)
+		window.blit(rockimg, (self.x, self.y))
 
 class View:
 	def __init__(self, model):
@@ -83,11 +84,11 @@ def startgame():
 				if rock.y >= winH:
 					rock.y = 1
 				elif rock.y <= 0:
-					rock.y = winH-1
+					rock.y = winH-10
 				elif rock.x >= winL:
 					rock.x = 1
-				elif rock.x <=0:
-					rock.x = winL-1
+				elif rock.x <= 0:
+					rock.x = winL-10
 
 		keys = pygame.key.get_pressed()
 
