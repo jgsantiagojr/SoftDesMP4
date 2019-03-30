@@ -14,8 +14,8 @@ import rocks
 pygame.init()
 
 
-winH = 480
-winL = 640 
+winH = 1080
+winL = 1920
 window = pygame.display.set_mode((winL,winH))
 
 pygame.display.set_caption("Asteroids")
@@ -27,20 +27,43 @@ rockimg = pygame.image.load('asteroid.jpg')
 
 
 class Asteroid:
-	def __init__(self, color):
+	def __init__(self, size):
 		self.x = random.randint(0, winL)
 		self.y = random.randint(0, winH)
-		self.radius = 25
-		self.color = color
+
 		self.angle = random.randint(0, 360)
-		self.velY = int(25 * math.cos(self.angle))
-		self.velX = int(25 * math.sin(self.angle))
 		self.size = 3
+		self.hit == False
+
+
+		if self.size == 3:
+			self.radius = 75
+
+			self.velY = int(25 * math.cos(self.angle))
+			self.velX = int(25 * math.sin(self.angle))
+
+		if self.size == 2:
+			self.radius = 50
+
+			self.velY = int(35 * math.cos(self.angle + 90))
+			self.velX = int(35 * math.sin(self.angle + 90))
+
+		if self.size == 1:
+			self.radius = 25
+
+			self.velY = int(45 * math.cos(self.angle + 90))
+			self.velX = int(45 * math.sin(self.angle + 90))
+
+
 
 
 	def draw(self, window):
-		#pygame.draw.circle(window, self.color, (self.x, self.y), self.radius)
-		window.blit(rockimg, (self.x, self.y))
+		pygame.draw.circle(window, (255,0,0), (self.x, self.y), self.radius)
+		#window.blit(rockimg, (self.x, self.y))
+
+	def hit(self):
+		if rock.hit
+
 
 class View:
 	def __init__(self, model):
@@ -91,10 +114,12 @@ def startgame():
 				elif rock.x <= 0:
 					rock.x = winL-10
 
+
+
 		keys = pygame.key.get_pressed()
 
 		if keys[pygame.K_a]:
-			model.rocks.append(Asteroid((0,255,0)))
+			model.rocks.append(Asteroid(3))
 
 		view.redrawGameWindow()
 
