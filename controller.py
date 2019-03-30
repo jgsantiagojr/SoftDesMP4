@@ -5,19 +5,22 @@ import projectiles
 import enemy
 
 ## global vairables
-max_velocity = 0
+keys = pygame.key.get_pressed()
+max_velocity = 40
 min_velocity = 0
-accel = 0
-deaccel = 0
+accel = .1
+deaccel = .05
+d_angle = 1
 locations = [[a,b], [c,d], [e,f], [h,i], [j,k], [l,m], [n,o]]
 
-def rotate(angle, d_angle):
+def rotate(self, direction):
 	##TODO: IMPLEMENT VISUAL ROTATION
-	angle += d_angle
-	return current_angle
+	if direction == True:
+		self.angle += d_angle
+	else:
+		self.angle -= d_angle
 
 def accelerate(direction, self):
-	##TODO: TAKE NET VELOCITY, ACCELERATE
 	if direction == True:
 		if self.velocity <= max_velocity:
 			self.velocity += accel
@@ -27,7 +30,9 @@ def accelerate(direction, self):
 
 def hyperdrive(ship, ):
 	for x in locations:
-
+		"""TODO: CHECK WHICH LOCATIONS CURRENTLY HAVE Asteroids
+				SEND THE SHIP TO A RANDOM CURRENTLY EMPTY LOCATION
+		 """
 
 
 class Ship():
@@ -36,8 +41,8 @@ class Ship():
 		self.y = y
 		self.angle = angle
 		self.width = width
-		self.vel = 20
-		self.alive = True
+		self.vel = vel
+		self.alive = alive
 
 	def __str__(self): ##UNTESTED
 		location = "Coordinates: (" + str(self.x) + "," + str(self.y) + ") \n"
@@ -52,9 +57,9 @@ class Ship():
 
 	def angle(self):
 		if keys[pygame.k_RIGHT] :
-			rotate(self.angle, 1) #rotate to the right
+			rotate(self.angle, True) #rotate to the right
 		if keys[pygame.k_LEFT] :
-			rotate(self.angle, -1)
+			rotate(self.angle, False) #rotate to the left
 
 	def thrust(self):
 		if keys[pygame.k_UP] :
@@ -65,9 +70,23 @@ class Ship():
 	def hyperdrive(self):
 		if keys[pygame.k_DOWN] :
 			hyperdrive(self)
+		else:
+			pass
+	def shoot(self):
+		if keys[pygame.K_SPACE] :
+			pass
+
+def update_ship(ship):
+	ship.angle()
+	ship.thrust()
+	ship.hyperdrive()
+	ship.shoot()
+	pygame.draw.rect(window, (0, 0, 0), (ship.x, ship.y, ship.width, ship.height))
+    ship.x += ship.vel
+    pygame.draw.rect(window, (0, 0, 255), (ship.x, ship.y, ship.width, ship.height))
+    pygame.display.update()
 
 
-keys = pygame.key.get_pressed()
 
 if keys[pygame.K_LEFT] and ship.x > 0:
     pygame.draw.rect(window, (0, 0, 0), (ship.x, ship.y, ship.width, ship.height))
