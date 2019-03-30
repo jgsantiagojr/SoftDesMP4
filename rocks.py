@@ -5,7 +5,7 @@ import random
 import math
 
 
-import controller as contr
+# import controller as contr
 import projectile as proj
 import enemy
 import rocks
@@ -35,6 +35,7 @@ class Asteroid:
 		self.angle = random.randint(0, 360)
 		self.velY = int(25 * math.cos(self.angle))
 		self.velX = int(25 * math.sin(self.angle))
+		self.size = 3
 
 
 	def draw(self, window):
