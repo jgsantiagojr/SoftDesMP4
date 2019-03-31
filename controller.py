@@ -43,6 +43,7 @@ class Ship():
 		self.width = width
 		self.vel = vel
 		self.alive = alive
+		self.hitbox = (self.x, self.y, self.width, self.height)
 
 	def __str__(self): ##UNTESTED
 		location = "Coordinates: (" + str(self.x) + "," + str(self.y) + ") \n"
@@ -82,12 +83,14 @@ def update_ship(ship):
 	ship.hyperdrive()
 	ship.shoot()
 	pygame.draw.rect(window, (0, 0, 0), (ship.x, ship.y, ship.width, ship.height))
-    ship.x += ship.vel
-    pygame.draw.rect(window, (0, 0, 255), (ship.x, ship.y, ship.width, ship.height))
+    ship.x += ship.vel ##TODO: ADD X COPMPONENT OF VELOCITY
+	ship.y += ship.vel ##TODO: ADD Y COMPONENT OF VELOCITY
+    pygame.draw.rect(window, (250, 250, 250), (ship.x, ship.y, ship.width, ship.height))
     pygame.display.update()
+	return shots_fired
 
 
-
+"""
 if keys[pygame.K_LEFT] and ship.x > 0:
     pygame.draw.rect(window, (0, 0, 0), (ship.x, ship.y, ship.width, ship.height))
     ship.x -= ship.vel
@@ -114,6 +117,7 @@ if keys[pygame.K_DOWN] and ship.y < 430:
     ship.y += ship.vel
     pygame.draw.rect(window, (0, 0, 255), (ship.x, ship.y, ship.width, ship.height))
     pygame.display.update()
+"""
 
 if keys[pygame.K_SPACE]:
     if len(bullets) < 5:
