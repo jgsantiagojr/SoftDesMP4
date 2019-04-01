@@ -68,9 +68,6 @@ class Asteroid_Big:
 
 
 
-
-
-
 class Asteroid_Med:
 	'''
 	Creating the Asteroid Big Class
@@ -78,7 +75,7 @@ class Asteroid_Med:
 		- angle is the trajectory at which the asteroid is launched
 		- Medium size and speed
 	'''
-	def __init__(self):
+	def __init__(self, x, y):
 		self.x = random.randint(0, winL)
 		self.y = random.randint(0, winH)
 
@@ -113,7 +110,7 @@ class Asteroid_Small:
 		- angle is the trajectory at which the asteroid is launched
 		- Smallest and fastest type
 	'''
-	def __init__(self):
+	def __init__(self, x, y):
 		self.x = random.randint(0, winL)
 		self.y = random.randint(0, winH)
 
@@ -209,10 +206,10 @@ def startgame():
 			model.rocks.append(Asteroid_Big())
 
 		if keys[pygame.K_s]:
-			model.rocks.append(Asteroid_Med())
+			model.rocks.append(Asteroid_Med(255, 255))
 
 		if keys[pygame.K_d]:
-			model.rocks.append(Asteroid_Small())
+			model.rocks.append(Asteroid_Small(255, 255))
 
 
 		view.redrawGameWindow()
