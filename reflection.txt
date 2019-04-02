@@ -1,0 +1,29 @@
+Project Overview [Maximum 100 words]
+
+	For MP4, Jamie and Adi set out to create a clone of the popular arcade game "Asteroids." The goal was to create a game that accurately 
+	represented how the old game functioned - including functions like Asteroid Wrapping and "Hyperdrive"
+
+Results [~2-3 paragraphs + figures/examples]
+
+	Present what you accomplished. This will be different for each project, but screenshots are likely to be helpful.
+
+Implementation [~2-3 paragraphs + UML diagram]
+
+	We had 4 main types of classes following the CMV methodology. There was a controller class which was the spaceship that the player
+	controlled, there was a projectile class that was inherited by the controller and enemy class that was used as ammunition by the player
+	to destroy the Asteroid class, which was the main environmental enemy in the game. 
+
+	We learned that conditional statements didn't work in init functions so we decided to divide the Asteroid class into 3 types - small
+	medium and large. Each new object was formed/destroyed depending on the status of other objects (larger than it). When coding we also
+	focused on trying to add some nuances that were there in the original game - the physics the ship follows, the asteroid images, etc.
+
+	See UML Diagram in repo.
+
+Reflection [~2 paragraphs]
+
+	From a process perspective, I think that we appropriately scoped our project well. We did a good job of splitting the work to be coded an integrating each other's work. We planned out functions and attributes of classes early so that there wasnt any confusion later. The break
+	put us a bit behind where we wanted to be but we pretty much caught up by the end. We split the responsibility by code files which worked really well. Surprisingly, we didn't run into any git issues, which was nice. 
+
+	Before we started, it would have been useful to properly scope out how much time we would put into the project over break - clearly we 
+	overestimated how much we would get done by the time we got back. This is something we plan on keeping in mind moving forward into the 
+	final project. We never had any miscommunications because whenever there were questions, we would have a short meeting to address them. 
