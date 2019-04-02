@@ -32,8 +32,8 @@ class Projectile():
 
 	def update_projectile(self):
 		self.coverdraw()
-		self.x += (math.degrees(math.cos(self.angle)) - 90) * self.vel
-		self.y += (math.degrees(math.sin(self.angle)) - 90) * self.vel
+		self.x += math.degrees(math.cos(self.angle)) * self.vel
+		self.y += math.degrees(math.sin(self.angle)) * self.vel
 		if self.x > self.winL :
 			self.x = 0
 		if self.x < 0 :

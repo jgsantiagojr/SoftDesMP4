@@ -1,8 +1,7 @@
 import pygame
 from pygame.locals import*
-
-import random
 import math
+import random
 
 
 # import controller as contr
@@ -15,15 +14,6 @@ Initialize pygame, screen, and load images
 '''
 
 pygame.init()
-
-
-winH = 1080
-winL = 1920
-window = pygame.display.set_mode((winL,winH))
-
-pygame.display.set_caption("Asteroids")
-
-
 # rockimg3 = pygame.image.load('asteroid3.jpg')
 # rockimg2 = pygame.image.load('asteroid2.jpg')
 # rockimg1 = pygame.image.load('asteroid1.jpg')
@@ -37,36 +27,52 @@ class Asteroid_Big:
 		- angle is the trajectory at which the asteroid is launched
 		- Biggest and slowest type
 	'''
-	def __init__(self):
-		self.x = random.randint(0, winL)
-		self.y = random.randint(0, winH)
+	def __init__(self,  window, winH, winL, image, sides = [1,2]):
+		c_side = random.choice(sides)
+		if c_side == 1:
+			self.x = random.randint(0, winL)
+			self.y = 0
+		if c_side == 2:
+			self.x = 0
+			self.y = random.randint(0, winH)
 
+		self.window = window
+		self.winH = winH
+		self.winL = winL
 		self.angle = random.randint(0, 360)
 		self.hit == False
 
-		self.radius = 75
+		self.radius = 30
 
-		self.velY = int(25 * math.cos(self.angle))
-		self.velX = int(25 * math.sin(self.angle))
-		# self.image = rockimg3
+		self.velY = int(.05 * math.degrees(math.cos(self.angle)))
+		self.velX = int(.05 * math.degrees(math.sin(self.angle)))
+		self.image = image
 
 		self.hitbox = (self.x, self.y, self.x + self.radius, self.y + self.radius)
-
-
-
 
 	def draw(self, window):
 		'''
 		Draws the Asteroid object correspoinding to its size on the window surface
 		'''
-		pygame.draw.circle(window, (255,0,0), (self.x, self.y), self.radius)
-		#window.blit(self.image, (self.x, self.y))
+		#pygame.display(self.image, self.x, self.y)
+		self.window.blit(self.image, (self.x, self.y))
 
 	def hit(self):
 		#TODO IMPLEMENT COLLISION BETWEEN PROJECTILES AND ASTEROIDS
-		pass
+		print('HIT')
+		return 3
 
-
+	def update_rock(self):
+		self.y += self.velY
+		self.x += self.velX
+		if self.x > self.winL :
+			self.x = 0
+		if self.x < 0 :
+			self.x = self.winL
+		if self.y > self.winH :
+			self.y = 0
+		if self.y < 0 :
+			self.y = self.winH
 
 class Asteroid_Med:
 	'''
@@ -75,18 +81,22 @@ class Asteroid_Med:
 		- angle is the trajectory at which the asteroid is launched
 		- Medium size and speed
 	'''
-	def __init__(self, x, y):
-		self.x = random.randint(0, winL)
-		self.y = random.randint(0, winH)
+	def __init__(self, window,  winH, winL, x, y, image):
+		self.x = x
+		self.y = y
+
+		self.window = window
+		self.winH = winH
+		self.winL = winL
 
 		self.angle = random.randint(0, 360)
 		self.hit == False
 
-		self.radius = 50
+		self.radius = 17
 
-		self.velY = int(35 * math.cos(self.angle + 90))
-		self.velX = int(35 * math.sin(self.angle + 90))
-		# self.image = rockimg2
+		self.velY = int(.05 * math.degrees(math.cos(self.angle)))
+		self.velX = int(.05 * math.degrees(math.sin(self.angle)))
+		self.image = image
 
 		self.hitbox = (self.x, self.y, self.x + self.radius, self.y + self.radius)
 
@@ -94,14 +104,24 @@ class Asteroid_Med:
 		'''
 		Draws the Asteroid object correspoinding to its size on the window surface
 		'''
-		pygame.draw.circle(window, (255,0,0), (self.x, self.y), self.radius)
-		#window.blit(self.image, (self.x, self.y))
-
+		#pygame.draw.circle(self.window, (255,0,0), (self.x, self.y), self.radius)
+		self.window.blit(self.image, (self.x, self.y))
 	def hit(self):
 		#TODO IMPLEMENT COLLISION BETWEEN PROJECTILES AND ASTEROIDS
-		pass
+		print('HIT')
+		return 2
 
-
+	def update_rock(self):
+		self.y += self.velY
+		self.x += self.velX
+		if self.x > self.winL :
+			self.x = 0
+		if self.x < 0 :
+			self.x = self.winL
+		if self.y > self.winH :
+			self.y = 0
+		if self.y < 0 :
+			self.y = self.winH
 
 class Asteroid_Small:
 	'''
@@ -110,18 +130,22 @@ class Asteroid_Small:
 		- angle is the trajectory at which the asteroid is launched
 		- Smallest and fastest type
 	'''
-	def __init__(self, x, y):
-		self.x = random.randint(0, winL)
-		self.y = random.randint(0, winH)
+	def __init__(self, window, winH, winL, x, y, image):
+		self.x = x
+		self.y = y
+
+		self.window = window
+		self.winH = winH
+		self.winL = winL
 
 		self.angle = random.randint(0, 360)
 		self.hit == False
 
-		self.radius = 25
+		self.radius = 9
 
-		self.velY = int(45 * math.cos(self.angle + 90))
-		self.velX = int(45 * math.sin(self.angle + 90))
-		# self.image = rockimg1
+		self.velY = int(.05 * math.degrees(math.cos(self.angle)))
+		self.velX = int(.05 * math.degrees(math.sin(self.angle)))
+		self.image = image
 
 		self.hitbox = (self.x, self.y, self.x + self.radius, self.y + self.radius)
 
@@ -129,12 +153,25 @@ class Asteroid_Small:
 		'''
 		Draws the Asteroid object correspoinding to its size on the window surface
 		'''
-		pygame.draw.circle(window, (255,0,0), (self.x, self.y), self.radius)
-		#window.blit(self.image, (self.x, self.y))
+		#pygame.draw.circle(self.window, (255,0,0), (self.x, self.y), self.radius)
+		self.window.blit(self.image, (self.x, self.y))
 
 	def hit(self):
 		#TODO IMPLEMENT COLLISION BETWEEN PROJECTILES AND ASTEROIDS
-		pass
+		print('HIT')
+		return 1
+
+	def update_rock(self):
+		self.y += self.velY
+		self.x += self.velX
+		if self.x > self.winL :
+			self.x = 0
+		if self.x < 0 :
+			self.x = self.winL
+		if self.y > self.winH :
+			self.y = 0
+		if self.y < 0 :
+			self.y = self.winH
 
 
 
@@ -220,11 +257,6 @@ def startgame():
 
 """
 if __name__ == "__main__":
-<<<<<<< HEAD
 
 	startgame()
 """
-=======
-	
-	startgame()
->>>>>>> b02601be0277cc7999895b00017c2cc15af94121
