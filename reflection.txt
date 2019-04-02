@@ -1,17 +1,19 @@
-Project Overview [Maximum 100 words]
+﻿Project Overview [Maximum 100 words]
 
-	For MP4, Jamie and Adi set out to create a clone of the popular arcade game "Asteroids." The goal was to create a game that accurately 
+	For MP4, Jamie and Adi set out to create a clone of the popular arcade game "Asteroids." The goal was to create a game that accurately
 	represented how the old game functioned - including functions like Asteroid Wrapping and "Hyperdrive"
 
 Results [~2-3 paragraphs + figures/examples]
+	The result of this mini-project is fairly close to the goal. What we created was a game which had a ‘spaceship’ flying through space, and it can shoot and avoid asteroids. When hit by an asteroid the spaceship will respawn in the center of the screen, as long as it still has one of it’s three lives left.
 
-	Present what you accomplished. This will be different for each project, but screenshots are likely to be helpful.
+	The bugs that still exist within our code is that upon rotation the image of the spaceship will become scrambled and will cause the program to fail and close. Another bug is that there is a delay in when the program detects collisions. And aspects of the game that were not included are the enemy alien that appears and shoots at the spaceship, as well as the hyperdrive ability and graphics showing score and lives left. 
+
 
 Implementation [~2-3 paragraphs + UML diagram]
 
 	We had 4 main types of classes following the CMV methodology. There was a controller class which was the spaceship that the player
 	controlled, there was a projectile class that was inherited by the controller and enemy class that was used as ammunition by the player
-	to destroy the Asteroid class, which was the main environmental enemy in the game. 
+	to destroy the Asteroid class, which was the main environmental enemy in the game.
 
 	We learned that conditional statements didn't work in init functions so we decided to divide the Asteroid class into 3 types - small
 	medium and large. Each new object was formed/destroyed depending on the status of other objects (larger than it). When coding we also
@@ -22,8 +24,9 @@ Implementation [~2-3 paragraphs + UML diagram]
 Reflection [~2 paragraphs]
 
 	From a process perspective, I think that we appropriately scoped our project well. We did a good job of splitting the work to be coded an integrating each other's work. We planned out functions and attributes of classes early so that there wasnt any confusion later. The break
-	put us a bit behind where we wanted to be but we pretty much caught up by the end. We split the responsibility by code files which worked really well. Surprisingly, we didn't run into any git issues, which was nice. 
+	put us a bit behind where we wanted to be but we pretty much caught up by the end. We split the responsibility by code files which worked really well. Surprisingly, we didn't run into any git issues, which was nice.
 
-	Before we started, it would have been useful to properly scope out how much time we would put into the project over break - clearly we 
-	overestimated how much we would get done by the time we got back. This is something we plan on keeping in mind moving forward into the 
-	final project. We never had any miscommunications because whenever there were questions, we would have a short meeting to address them. 
+	Before we started, it would have been useful to properly scope out how much time we would put into the project over break - clearly we
+	overestimated how much we would get done by the time we got back. This is something we plan on keeping in mind moving forward into the
+	final project. We never had any miscommunications because whenever there were questions, we would have a short meeting to address them.
+	All of the bugs and aspects of the game that were not included could have been fixed given more time, but that is always a problem, and could have been partially solved through better planning over break as well as reaching out for more assistance from the teaching staff and ninjas, to skip past some of the walls we ran into at various points.
